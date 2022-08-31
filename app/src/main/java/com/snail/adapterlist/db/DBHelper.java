@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.snail.adapterlist.objects.Animal;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
@@ -156,7 +157,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return animal;
     }
 
-    public void FillListAnimal(List<String> animals) {
+    public void FillListAnimal(ArrayList<Animal> animals) {
         animals.clear();
 
         SQLiteDatabase database = getWritableDatabase();
@@ -174,13 +175,12 @@ public class DBHelper extends SQLiteOpenHelper {
             int column_color  = cursor.getColumnIndex(KEY_COLOR);
 
             do {
-//                animals.add(new Animal(cursor.getLong(column_id),
-//                                       cursor.getString(column_name),
-//                                       cursor.getInt(column_age),
-//                                       cursor.getDouble(column_length),
-//                                       cursor.getInt(column_weight),
-//                                       cursor.getString(column_color)));
-                animals.add(cursor.getString(column_name));
+                animals.add(new Animal(cursor.getLong(column_id),
+                                       cursor.getString(column_name),
+                                       cursor.getInt(column_age),
+                                       cursor.getDouble(column_length),
+                                       cursor.getInt(column_weight),
+                                       cursor.getString(column_color)));
             } while (cursor.moveToNext());
         }
 

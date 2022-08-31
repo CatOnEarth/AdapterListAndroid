@@ -1,6 +1,8 @@
 package com.snail.adapterlist.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,16 +11,20 @@ import android.widget.ListView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.snail.adapterlist.R;
+import com.snail.adapterlist.adapters.CustomAdapter;
 import com.snail.adapterlist.db.DBHelper;
+import com.snail.adapterlist.objects.Animal;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private List<String> animals;
     private DBHelper db;
-    private ArrayAdapter<String> arrayAdapter;
+
+    private CustomAdapter adapter;
+    private ArrayList<Animal> animalsList = new ArrayList<>();
+    private RecyclerView recycler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,34 +32,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         db = new DBHelper(this);
-        animals = new ArrayList<>();
 
-        db.FillListAnimal(animals);
+        db.FillListAnimal(animalsList);
 
-        ListView listview = findViewById(R.id.listView);
-
-        arrayAdapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_expandable_list_item_1, animals);
-
-        listview.setAdapter(arrayAdapter);
-
-        listview.setOnItemClickListener((adapterView, view, i, l) -> {
-            Intent intent = new Intent(MainActivity.this, DescriptionObjectActivity.class);
-            startActivity(intent);
-        });
+        recycler = findViewById(R.id.recyclerView);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recycler.setLayoutManager(layoutManager);
+        adapter = new CustomAdapter(animalsList, this);
+        recycler.setAdapter(adapter);
 
         FloatingActionButton fab = findViewById(R.id.fabAdd);
         fab.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, AddingActivity.class);
             startActivity(intent);
         });
+
+        adapter.notifyDataSetChanged();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-
-        db.FillListAnimal(animals);
-        arrayAdapter.notifyDataSetChanged();
     }
 }

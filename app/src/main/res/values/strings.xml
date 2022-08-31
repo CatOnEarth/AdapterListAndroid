@@ -17,4 +17,5 @@
     <string name="TextDescriptionWeightAnimalTextResource">Вес:</string>
     <string name="TextDescriptionColorAnimalTextResource">Цвет:</string>
     <string name="TextDescriptionButtonRemoveTextResource">Удалить</string>
+    <string name="element_text">Element</string>
 </resources>
