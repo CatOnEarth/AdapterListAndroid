@@ -10,12 +10,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.snail.adapterlist.objects.Animal;
 
 import java.util.ArrayList;
-import java.util.List;
-
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME  = "animalsDB";
-    /** Database version */
     private static final int    DATABASE_VERSION = 1;
 
     private static final String TABLE_ANIMALS  = "animals";
@@ -120,43 +117,6 @@ public class DBHelper extends SQLiteOpenHelper {
         return isExist;
     }
 
-
-    /**
-     *
-     * @param name Name of animal
-     * @return
-     */
-    public Animal selectAnimalByName(String name) {
-        SQLiteDatabase database = getWritableDatabase();
-        @SuppressLint("Recycle") Cursor cursor = database.query(TABLE_ANIMALS, null,
-                KEY_NAME   + " = ? " ,
-                new String[] {name },
-                null, null, null);
-
-        Animal animal = new Animal();
-
-        if (cursor.moveToFirst()) {
-            int column_id     = cursor.getColumnIndex(KEY_ID);
-            int column_name   = cursor.getColumnIndex(KEY_NAME);
-            int column_age    = cursor.getColumnIndex(KEY_AGE);
-            int column_length = cursor.getColumnIndex(KEY_LENGTH);
-            int column_weight = cursor.getColumnIndex(KEY_WEIGHT);
-            int column_color  = cursor.getColumnIndex(KEY_COLOR);
-
-            animal.set_id(cursor.getLong(column_id));
-            animal.setName(cursor.getString(column_name));
-            animal.setAge(cursor.getInt(column_age));
-            animal.setLength(cursor.getDouble(column_length));
-            animal.setWeight(cursor.getInt(column_weight));
-            animal.setColor(cursor.getString(column_color));
-        }
-
-        cursor.close();
-        database.close();
-
-        return animal;
-    }
-
     public void FillListAnimal(ArrayList<Animal> animals) {
         animals.clear();
 
@@ -185,6 +145,12 @@ public class DBHelper extends SQLiteOpenHelper {
         }
 
         cursor.close();
+        database.close();
+    }
+
+    public void deleteAnimal(long id_animal) {
+        SQLiteDatabase database = getWritableDatabase();
+        database.delete(TABLE_ANIMALS, KEY_ID + " = " + id_animal, null);
         database.close();
     }
 }

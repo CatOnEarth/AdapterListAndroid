@@ -21,14 +21,13 @@
         app:layout_constraintVertical_bias="0.15" >
 
         <TextView
-            android:id="@+id/textViewAnimalNameDescriptionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/TextDescriptionNameAnimalTextResource" />
 
         <TextView
-            android:id="@+id/textView13"
+            android:id="@+id/textViewAnimalNameDescriptionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
@@ -48,14 +47,13 @@
         app:layout_constraintVertical_bias="0.829">
 
         <TextView
-            android:id="@+id/textViewAnimalAgeDescriptionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/TextDescriptionAgeAnimalTextResource" />
 
         <TextView
-            android:id="@+id/textView14"
+            android:id="@+id/textViewAnimalAgeDescriptionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
@@ -75,14 +73,13 @@
         app:layout_constraintVertical_bias="0.325" >
 
         <TextView
-            android:id="@+id/textViewAnimalLengthDescriptionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/TextDescriptionLengthAnimalTextResource" />
 
         <TextView
-            android:id="@+id/textView15"
+            android:id="@+id/textViewAnimalLengthDescriptionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
@@ -102,14 +99,13 @@
         app:layout_constraintVertical_bias="0.668" >
 
         <TextView
-            android:id="@+id/textViewAnimalWeightDescriptionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/TextDescriptionWeightAnimalTextResource" />
 
         <TextView
-            android:id="@+id/textView16"
+            android:id="@+id/textViewAnimalWeightDescriptionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
@@ -129,14 +125,13 @@
         app:layout_constraintVertical_bias="0.499" >
 
         <TextView
-            android:id="@+id/textViewAnimalColorDescriptionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/TextDescriptionColorAnimalTextResource" />
 
         <TextView
-            android:id="@+id/textView17"
+            android:id="@+id/textViewAnimalColorDescriptionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />

@@ -1,46 +1,37 @@
 package com.snail.adapterlist.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.snail.adapterlist.R;
+import com.snail.adapterlist.activities.DescriptionObjectActivity;
 import com.snail.adapterlist.objects.Animal;
 
 import java.util.ArrayList;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
 
-    private ArrayList<Animal> localAnimals;
-    private Context mContext;
+    private final ArrayList<Animal> localAnimals;
+    private final Context           mContext;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView textView;
-        private final TextView textView2;
+        private final TextView textViewAnimalName;
+        private final TextView textViewAnimalAge;
 
         public ViewHolder(View view) {
             super(view);
-            textView = (TextView) view.findViewById(R.id.textView);
-            textView2 = (TextView) view.findViewById(R.id.textView2);
-        }
-
-        public TextView getTextView() {
-            return textView;
+            textViewAnimalName = (TextView) view.findViewById(R.id.textViewAnimalNameRecyclerView);
+            textViewAnimalAge = (TextView) view.findViewById(R.id.textViewAnimalAgeRecyclerView);
         }
     }
 
-    /**
-     * Initialize the dataset of the Adapter.
-     *
-     * @param dataSet String[] containing the data to populate views to be used
-     * by RecyclerView.
-     */
     public CustomAdapter(ArrayList<Animal> animals, Context context) {
         localAnimals = animals;
         mContext = context;
@@ -49,7 +40,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        // Create a new view, which defines the UI of the list item
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.text_row_item, viewGroup, false);
 
@@ -59,18 +49,24 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-        viewHolder.getTextView().setText(localAnimals.get(position).getName());
-        viewHolder.textView2.setText("SDAD");
+        viewHolder.textViewAnimalName.setText(localAnimals.get(position).getName());
+        viewHolder.textViewAnimalAge.setText(String.valueOf(localAnimals.get(position).getAge()));
 
-        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(mContext, "Click item" + String.valueOf(viewHolder.getAdapterPosition()), Toast.LENGTH_LONG).show();
-            }
-        });
+        viewHolder.itemView.setOnClickListener(view -> StartDescriptionActivity(position));
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
+    public void StartDescriptionActivity(int position) {
+        Intent intent = new Intent(mContext, DescriptionObjectActivity.class);
+        intent.putExtra(DescriptionObjectActivity.KEY_ID,     localAnimals.get(position).get_id());
+        intent.putExtra(DescriptionObjectActivity.KEY_NAME,   localAnimals.get(position).getName());
+        intent.putExtra(DescriptionObjectActivity.KEY_AGE,    localAnimals.get(position).getAge());
+        intent.putExtra(DescriptionObjectActivity.KEY_LENGTH, localAnimals.get(position).getLength());
+        intent.putExtra(DescriptionObjectActivity.KEY_WEIGHT, localAnimals.get(position).getWeight());
+        intent.putExtra(DescriptionObjectActivity.KEY_COLOR,  localAnimals.get(position).getColor());
+
+        mContext.startActivity(intent);
+    }
+
     @Override
     public int getItemCount() {
         return localAnimals.size();
