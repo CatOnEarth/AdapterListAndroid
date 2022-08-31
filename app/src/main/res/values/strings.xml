@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">AdapterList</string>
+    <string name="ButtonSaveAnimalTextResource">Сохранить</string>
+    <string name="HintColorAnimalTextResource">Цвет</string>
+    <string name="TextColorAnimalTextResource">Укажите цвет животного</string>
+    <string name="HintWeightAnimalTextResource">Вес</string>
+    <string name="TextWeightAnimalTextResource">Укажите вес животного</string>
+    <string name="HintLengthAnimalTextResource">Длина</string>
+    <string name="TextLengthAnimalTextResource">Укажите длину животного</string>
+    <string name="HintAgeAnimalTextResource">Возраст</string>
+    <string name="TextAgeAnimalTextResource">Укажите возраст</string>
+    <string name="TextNameAnimalTextResource">Введите название животного</string>
+    <string name="HintNameAnimalTextResource">Название</string>
+    <string name="TextDescriptionNameAnimalTextResource">Название:</string>
+    <string name="TextDescriptionAgeAnimalTextResource">Возраст:</string>
+    <string name="TextDescriptionLengthAnimalTextResource">Длинна:</string>
+    <string name="TextDescriptionWeightAnimalTextResource">Вес:</string>
+    <string name="TextDescriptionColorAnimalTextResource">Цвет:</string>
+    <string name="TextDescriptionButtonRemoveTextResource">Удалить</string>
 </resources>
