@@ -1,0 +1,135 @@
+\hypertarget{_d_b_helper_8java_source}{}\doxysection{DBHelper.\+java}
+\label{_d_b_helper_8java_source}\index{app/src/main/java/com/snail/adapterlist/db/DBHelper.java@{app/src/main/java/com/snail/adapterlist/db/DBHelper.java}}
+\mbox{\hyperlink{_d_b_helper_8java}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00001}\mbox{\hyperlink{namespacecom_1_1snail_1_1adapterlist_1_1db}{00001}} \textcolor{keyword}{package }com.snail.adapterlist.db;}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00003}00003 \textcolor{keyword}{import} android.annotation.SuppressLint;}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00004}00004 \textcolor{keyword}{import} android.content.ContentValues;}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00005}00005 \textcolor{keyword}{import} android.content.Context;}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00006}00006 \textcolor{keyword}{import} android.database.Cursor;}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00007}00007 \textcolor{keyword}{import} android.database.sqlite.SQLiteDatabase;}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00008}00008 \textcolor{keyword}{import} android.database.sqlite.SQLiteOpenHelper;}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00010}00010 \textcolor{keyword}{import} com.snail.adapterlist.objects.Animal;}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00012}00012 \textcolor{keyword}{import} java.util.ArrayList;}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00017}\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper}{00017}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper}{DBHelper}} \textcolor{keyword}{extends} SQLiteOpenHelper \{}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00020}00020     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} String DATABASE\_NAME  = \textcolor{stringliteral}{"{}animalsDB"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00022}00022     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} \textcolor{keywordtype}{int}    DATABASE\_VERSION = 1;}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00025}00025     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} String TABLE\_ANIMALS  = \textcolor{stringliteral}{"{}animals"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00028}00028     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} String KEY\_ID     = \textcolor{stringliteral}{"{}\_id"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00030}00030     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} String KEY\_NAME   = \textcolor{stringliteral}{"{}name"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00032}00032     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} String KEY\_AGE    = \textcolor{stringliteral}{"{}age"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00034}00034     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} String KEY\_LENGTH = \textcolor{stringliteral}{"{}length"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00036}00036     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} String KEY\_WEIGHT = \textcolor{stringliteral}{"{}weight"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00038}00038     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} String KEY\_COLOR  = \textcolor{stringliteral}{"{}color"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00044}\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_ad77f1c1012c1308e6cec02527b3578bd}{00044}}     \textcolor{keyword}{public} \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_ad77f1c1012c1308e6cec02527b3578bd}{DBHelper}}(Context context) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00045}00045         super(context, DATABASE\_NAME, \textcolor{keyword}{null}, DATABASE\_VERSION);}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00046}00046     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00052}00052     @Override}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00053}\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_a1390ca734ade349d50aba903ca59ee1c}{00053}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_a1390ca734ade349d50aba903ca59ee1c}{onCreate}}(SQLiteDatabase sqLiteDatabase) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00054}00054         sqLiteDatabase.execSQL(\textcolor{stringliteral}{"{}create table "{}} + TABLE\_ANIMALS + \textcolor{stringliteral}{"{}("{}} +}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00055}00055                 KEY\_ID       + \textcolor{stringliteral}{"{} integer primary key,"{}} +}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00056}00056                 KEY\_NAME     + \textcolor{stringliteral}{"{} text,"{}}                +}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00057}00057                 KEY\_AGE      + \textcolor{stringliteral}{"{} integer,"{}}             +}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00058}00058                 KEY\_LENGTH   + \textcolor{stringliteral}{"{} real,"{}}                +}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00059}00059                 KEY\_WEIGHT   + \textcolor{stringliteral}{"{} integer, "{}}            +}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00060}00060                 KEY\_COLOR    + \textcolor{stringliteral}{"{} text"{}}                 +}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00061}00061                 \textcolor{stringliteral}{"{})"{}});}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00062}00062     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00063}00063 }
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00070}00070     @Override}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00071}\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_ab4db1a20ce1dfe1fad0c5c4fabe735f2}{00071}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_ab4db1a20ce1dfe1fad0c5c4fabe735f2}{onUpgrade}}(SQLiteDatabase sqLiteDatabase, \textcolor{keywordtype}{int} oldVersion, \textcolor{keywordtype}{int} newVersion) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00072}00072         sqLiteDatabase.execSQL(\textcolor{stringliteral}{"{}drop table if exists "{}} + TABLE\_ANIMALS);}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00073}00073         \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_a1390ca734ade349d50aba903ca59ee1c}{onCreate}}(sqLiteDatabase);}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00074}00074     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00075}00075 }
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00084}\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_a45c8a017f229c09fd656d7d0b2548420}{00084}}     \textcolor{keyword}{public} \textcolor{keywordtype}{long} \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_a45c8a017f229c09fd656d7d0b2548420}{insertAnimal}}(\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1objects_1_1_animal}{Animal}} animal) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00085}00085         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_aa4185e58dcc65295a5ff308ba4b9012a}{IsAnimalExist}}(animal)) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00086}00086             \textcolor{keywordflow}{return} -\/2;}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00087}00087         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00088}00088 }
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00089}00089         ContentValues contentValues = \textcolor{keyword}{new} ContentValues();}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00090}00090 }
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00091}00091         contentValues.put(\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper}{DBHelper}}.KEY\_NAME,    animal.\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1objects_1_1_animal_ae64b44ebbcdbc12842d4bdabc7656443}{getName}}());}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00092}00092         contentValues.put(\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper}{DBHelper}}.KEY\_AGE,     animal.\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1objects_1_1_animal_a90d6de482dbca2ba59480747455567fb}{getAge}}());}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00093}00093         contentValues.put(\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper}{DBHelper}}.KEY\_LENGTH,  animal.\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1objects_1_1_animal_a9b24b2d9a698308a24dccbd79b56aa58}{getLength}}());}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00094}00094         contentValues.put(\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper}{DBHelper}}.KEY\_WEIGHT,  animal.\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1objects_1_1_animal_a06fcbd6d1aa7a61d4b9a2ce7fdc26777}{getWeight}}());}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00095}00095         contentValues.put(\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper}{DBHelper}}.KEY\_COLOR,   animal.\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1objects_1_1_animal_ab7e7f1ba13a8ac4b3bcc7540d7375f88}{getColor}}());}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00096}00096 }
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00097}00097         SQLiteDatabase database = getWritableDatabase();}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00098}00098         \textcolor{keywordtype}{long} res\_insert         = database.insert(TABLE\_ANIMALS, \textcolor{keyword}{null}, contentValues);}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00099}00099 }
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00100}00100         database.close();}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00101}00101 }
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00102}00102         \textcolor{keywordflow}{return} res\_insert;}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00103}00103     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00104}00104 }
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00111}\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_aa4185e58dcc65295a5ff308ba4b9012a}{00111}}     \textcolor{keyword}{public} \textcolor{keywordtype}{boolean} \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_aa4185e58dcc65295a5ff308ba4b9012a}{IsAnimalExist}}(\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1objects_1_1_animal}{Animal}} animal) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00112}00112         SQLiteDatabase database = getWritableDatabase();}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00113}00113         @SuppressLint(\textcolor{stringliteral}{"{}Recycle"{}}) Cursor cursor = database.query(TABLE\_ANIMALS, \textcolor{keyword}{null},}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00114}00114                 KEY\_NAME   + \textcolor{stringliteral}{"{} = ? AND "{}} +}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00115}00115                         KEY\_AGE    + \textcolor{stringliteral}{"{} = ? AND "{}} +}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00116}00116                         KEY\_LENGTH + \textcolor{stringliteral}{"{} = ? AND "{}} +}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00117}00117                         KEY\_WEIGHT + \textcolor{stringliteral}{"{} = ? AND "{}} +}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00118}00118                         KEY\_COLOR  + \textcolor{stringliteral}{"{} = ? "{}}     ,}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00119}00119                 \textcolor{keyword}{new} String[] \{animal.\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1objects_1_1_animal_ae64b44ebbcdbc12842d4bdabc7656443}{getName}}()                   ,}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00120}00120                         String.valueOf(animal.\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1objects_1_1_animal_a90d6de482dbca2ba59480747455567fb}{getAge}}()),}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00121}00121                         String.valueOf(animal.\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1objects_1_1_animal_a9b24b2d9a698308a24dccbd79b56aa58}{getLength}}()),}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00122}00122                         String.valueOf(animal.\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1objects_1_1_animal_a06fcbd6d1aa7a61d4b9a2ce7fdc26777}{getWeight}}())       ,}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00123}00123                         animal.\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1objects_1_1_animal_ab7e7f1ba13a8ac4b3bcc7540d7375f88}{getColor}}() \},}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00124}00124                 \textcolor{keyword}{null}, \textcolor{keyword}{null}, \textcolor{keyword}{null});}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00125}00125 }
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00126}00126         \textcolor{keywordtype}{boolean} isExist = cursor.moveToFirst();}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00127}00127         cursor.close();}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00128}00128         database.close();}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00129}00129 }
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00130}00130         \textcolor{keywordflow}{return} isExist;}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00131}00131     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00132}00132 }
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00137}\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_ae561c465d6bc2771a192f549c4fa7634}{00137}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_ae561c465d6bc2771a192f549c4fa7634}{FillListAnimal}}(ArrayList<Animal> animals) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00138}00138         animals.clear();}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00139}00139 }
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00140}00140         SQLiteDatabase database = getWritableDatabase();}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00141}00141         @SuppressLint(\textcolor{stringliteral}{"{}Recycle"{}}) Cursor cursor = database.query(TABLE\_ANIMALS, \textcolor{keyword}{null},}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00142}00142                 \textcolor{keyword}{null} ,}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00143}00143                 \textcolor{keyword}{null},}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00144}00144                 \textcolor{keyword}{null}, \textcolor{keyword}{null}, \textcolor{keyword}{null});}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00145}00145 }
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00146}00146         \textcolor{keywordflow}{if} (cursor.moveToFirst()) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00147}00147             \textcolor{keywordtype}{int} column\_id     = cursor.getColumnIndex(KEY\_ID);}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00148}00148             \textcolor{keywordtype}{int} column\_name   = cursor.getColumnIndex(KEY\_NAME);}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00149}00149             \textcolor{keywordtype}{int} column\_age    = cursor.getColumnIndex(KEY\_AGE);}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00150}00150             \textcolor{keywordtype}{int} column\_length = cursor.getColumnIndex(KEY\_LENGTH);}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00151}00151             \textcolor{keywordtype}{int} column\_weight = cursor.getColumnIndex(KEY\_WEIGHT);}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00152}00152             \textcolor{keywordtype}{int} column\_color  = cursor.getColumnIndex(KEY\_COLOR);}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00153}00153 }
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00154}00154             \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00155}00155                 animals.add(\textcolor{keyword}{new} \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1objects_1_1_animal}{Animal}}(cursor.getLong(column\_id),}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00156}00156                                        cursor.getString(column\_name),}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00157}00157                                        cursor.getInt(column\_age),}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00158}00158                                        cursor.getDouble(column\_length),}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00159}00159                                        cursor.getInt(column\_weight),}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00160}00160                                        cursor.getString(column\_color)));}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00161}00161             \} \textcolor{keywordflow}{while} (cursor.moveToNext());}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00162}00162         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00163}00163 }
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00164}00164         cursor.close();}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00165}00165         database.close();}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00166}00166     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00167}00167 }
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00172}\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_ab0e9a5215fbb262e6db150c241705e57}{00172}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_ab0e9a5215fbb262e6db150c241705e57}{deleteAnimal}}(\textcolor{keywordtype}{long} id\_animal) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00173}00173         SQLiteDatabase database = getWritableDatabase();}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00174}00174         database.delete(TABLE\_ANIMALS, KEY\_ID + \textcolor{stringliteral}{"{} = "{}} + id\_animal, \textcolor{keyword}{null});}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00175}00175         database.close();}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00176}00176     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_helper_8java_source_l00177}00177 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,79 @@
+\hypertarget{_custom_adapter_8java_source}{}\doxysection{Custom\+Adapter.\+java}
+\label{_custom_adapter_8java_source}\index{app/src/main/java/com/snail/adapterlist/adapters/CustomAdapter.java@{app/src/main/java/com/snail/adapterlist/adapters/CustomAdapter.java}}
+\mbox{\hyperlink{_custom_adapter_8java}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00001}\mbox{\hyperlink{namespacecom_1_1snail_1_1adapterlist_1_1adapters}{00001}} \textcolor{keyword}{package }com.snail.adapterlist.adapters;}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00003}00003 \textcolor{keyword}{import} android.content.Context;}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00004}00004 \textcolor{keyword}{import} android.content.Intent;}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00005}00005 \textcolor{keyword}{import} android.view.LayoutInflater;}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00006}00006 \textcolor{keyword}{import} android.view.View;}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00007}00007 \textcolor{keyword}{import} android.view.ViewGroup;}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00008}00008 \textcolor{keyword}{import} android.widget.TextView;}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00010}00010 \textcolor{keyword}{import} androidx.annotation.NonNull;}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00011}00011 \textcolor{keyword}{import} androidx.recyclerview.widget.RecyclerView;}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00013}00013 \textcolor{keyword}{import} com.snail.adapterlist.R;}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00014}00014 \textcolor{keyword}{import} com.snail.adapterlist.activities.DescriptionObjectActivity;}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00015}00015 \textcolor{keyword}{import} com.snail.adapterlist.objects.Animal;}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00017}00017 \textcolor{keyword}{import} java.util.ArrayList;}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00020}\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1adapters_1_1_custom_adapter}{00020}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1adapters_1_1_custom_adapter}{CustomAdapter}} \textcolor{keyword}{extends} RecyclerView.Adapter<CustomAdapter.ViewHolder> \{}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00023}00023     \textcolor{keyword}{private} \textcolor{keyword}{final} ArrayList<Animal> localAnimals;}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00025}00025     \textcolor{keyword}{private} \textcolor{keyword}{final} Context           mContext;}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00031}00031     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keyword}{class }ViewHolder \textcolor{keyword}{extends} RecyclerView.ViewHolder \{}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00033}00033         \textcolor{keyword}{private} \textcolor{keyword}{final} TextView textViewAnimalName;}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00035}00035         \textcolor{keyword}{private} \textcolor{keyword}{final} TextView textViewAnimalAge;}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00041}00041         \textcolor{keyword}{public} ViewHolder(View view) \{}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00042}00042             super(view);}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00043}00043             textViewAnimalName = (TextView) view.findViewById(R.id.textViewAnimalNameRecyclerView);}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00044}00044             textViewAnimalAge = (TextView) view.findViewById(R.id.textViewAnimalAgeRecyclerView);}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00045}00045         \}}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00046}00046     \}}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00053}\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1adapters_1_1_custom_adapter_afa02c2a43a6fe29d0cb250be9d8160b7}{00053}}     \textcolor{keyword}{public} \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1adapters_1_1_custom_adapter_afa02c2a43a6fe29d0cb250be9d8160b7}{CustomAdapter}}(ArrayList<Animal> animals, Context context) \{}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00054}00054         localAnimals = animals;}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00055}00055         mContext = context;}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00056}00056     \}}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00064}00064     @NonNull}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00065}00065     @Override}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00066}\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1adapters_1_1_custom_adapter_afc07efb8ec30035e2a87577c75bba8cb}{00066}}     \textcolor{keyword}{public} ViewHolder \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1adapters_1_1_custom_adapter_afc07efb8ec30035e2a87577c75bba8cb}{onCreateViewHolder}}(ViewGroup viewGroup, \textcolor{keywordtype}{int} viewType) \{}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00067}00067         View view = LayoutInflater.from(viewGroup.getContext())}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00068}00068                 .inflate(R.layout.text\_row\_item, viewGroup, \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00070}00070         \textcolor{keywordflow}{return} \textcolor{keyword}{new} ViewHolder(view);}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00071}00071     \}}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00072}00072 }
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00078}00078     @Override}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00079}\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1adapters_1_1_custom_adapter_a3a4ee1b5c16ce36979461d59733a3eaf}{00079}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1adapters_1_1_custom_adapter_a3a4ee1b5c16ce36979461d59733a3eaf}{onBindViewHolder}}(ViewHolder viewHolder, \textcolor{keyword}{final} \textcolor{keywordtype}{int} position) \{}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00080}00080         viewHolder.textViewAnimalName.setText(localAnimals.get(position).getName());}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00081}00081         viewHolder.textViewAnimalAge.setText(String.valueOf(localAnimals.get(position).getAge()));}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00082}00082 }
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00083}00083         viewHolder.itemView.setOnClickListener(view -\/> \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1adapters_1_1_custom_adapter_a3bc1a45a5b66b4c03a00acdc952ab679}{StartDescriptionActivity}}(position));}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00084}00084     \}}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00085}00085 }
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00090}\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1adapters_1_1_custom_adapter_a3bc1a45a5b66b4c03a00acdc952ab679}{00090}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1adapters_1_1_custom_adapter_a3bc1a45a5b66b4c03a00acdc952ab679}{StartDescriptionActivity}}(\textcolor{keywordtype}{int} position) \{}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00091}00091         Intent intent = \textcolor{keyword}{new} Intent(mContext, \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1activities_1_1_description_object_activity}{DescriptionObjectActivity}}.class);}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00092}00092         intent.putExtra(\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1activities_1_1_description_object_activity}{DescriptionObjectActivity}}.\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1activities_1_1_description_object_activity_ac79f401bf4d1320dbe872c87c94f67eb}{KEY\_ID}},     localAnimals.get(position).get\_id());}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00093}00093         intent.putExtra(\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1activities_1_1_description_object_activity}{DescriptionObjectActivity}}.\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1activities_1_1_description_object_activity_add7a03a1dd68653b07d1a195ee0c3cbc}{KEY\_NAME}},   localAnimals.get(position).getName());}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00094}00094         intent.putExtra(\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1activities_1_1_description_object_activity}{DescriptionObjectActivity}}.\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1activities_1_1_description_object_activity_af83fe15a7c9e568da1c6738c444a71ce}{KEY\_AGE}},    localAnimals.get(position).getAge());}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00095}00095         intent.putExtra(\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1activities_1_1_description_object_activity}{DescriptionObjectActivity}}.\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1activities_1_1_description_object_activity_aa75ec2c94febccd92f51c3a71562d5fa}{KEY\_LENGTH}}, localAnimals.get(position).getLength());}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00096}00096         intent.putExtra(\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1activities_1_1_description_object_activity}{DescriptionObjectActivity}}.\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1activities_1_1_description_object_activity_aeb7f4e01f6a218e5b55a8a54f1ed4d85}{KEY\_WEIGHT}}, localAnimals.get(position).getWeight());}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00097}00097         intent.putExtra(\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1activities_1_1_description_object_activity}{DescriptionObjectActivity}}.\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1activities_1_1_description_object_activity_a804a1d8f6a829b93d4a64fbdddf4a1dc}{KEY\_COLOR}},  localAnimals.get(position).getColor());}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00098}00098 }
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00099}00099         mContext.startActivity(intent);}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00100}00100     \}}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00101}00101 }
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00106}00106     @Override}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00107}\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1adapters_1_1_custom_adapter_a426d272861375520f4900e9af320a7b9}{00107}}     \textcolor{keyword}{public} \textcolor{keywordtype}{int} \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1adapters_1_1_custom_adapter_a426d272861375520f4900e9af320a7b9}{getItemCount}}() \{}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00108}00108         \textcolor{keywordflow}{return} localAnimals.size();}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00109}00109     \}}
+\DoxyCodeLine{\Hypertarget{_custom_adapter_8java_source_l00110}00110 \}}
+
+\end{DoxyCode}

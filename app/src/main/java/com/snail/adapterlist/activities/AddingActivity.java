@@ -13,12 +13,21 @@ import com.snail.adapterlist.objects.Animal;
 
 public class AddingActivity extends AppCompatActivity {
 
+    /** EditText to input animal's name */
     private EditText editTextNameAnimal;
+    /** EditText to input animal's age */
     private EditText editTextAgeAnimal;
+    /** EditText to input animal's length */
     private EditText editTextLengthAnimal;
+    /** EditText to input animal's weight */
     private EditText editTextWeightAnimal;
+    /** EditText to input animal's color */
     private EditText editTextColorAnimal;
 
+    /** onCreate method of MainActivity
+     *
+     * @param savedInstanceState a reference to a Bundle object that is passed into the onCreate method of every Android Activity
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,12 +43,18 @@ public class AddingActivity extends AppCompatActivity {
         bSaveAnimal.setOnClickListener(view -> SaveAnimalInfo());
     }
 
+    /**Method to check correction and save info about animal
+     *
+     */
     private void SaveAnimalInfo() {
         if (IsCorrectInfo()) {
             SaveAnimal();
         }
     }
 
+    /**Method to save animal in SQLITE
+     *
+     */
     private void SaveAnimal() {
         String name   = editTextNameAnimal.getText().toString();
         int    age    = Integer.parseInt(editTextAgeAnimal.getText().toString());
@@ -56,15 +71,29 @@ public class AddingActivity extends AppCompatActivity {
         }
     }
 
+    /**Method to check correction input data about animal
+     *
+     * @return true if all i correct
+     * @return false if find incorrect input
+     */
     private boolean IsCorrectInfo() {
         return IsCorrectName() && IsCorrectColor() && IsCorrectWeight()
                      && IsCorrectLength() && IsCorrectAge();
     }
 
+    /**Method to check correction input length of animal
+     *
+     * @return true if it's a number and > 0
+     * @return false if it's not a number <= 0
+     */
     private boolean IsCorrectLength() {
         String textLength = editTextLengthAnimal.getText().toString();
         try {
-            Double.parseDouble(textLength);
+            double length = Double.parseDouble(textLength);
+            if (length <= 0) {
+                editTextLengthAnimal.setError("Укажите длину > 0");
+                return false;
+            }
         } catch (NumberFormatException e) {
             editTextLengthAnimal.setError("Укажите длину");
             return false;
@@ -73,6 +102,11 @@ public class AddingActivity extends AppCompatActivity {
         return true;
     }
 
+    /**Method to check correction input color of animal
+     *
+     * @return true if it's not empty
+     * @return false if it's empty
+     */
     private boolean IsCorrectColor() {
         String color = editTextColorAnimal.getText().toString();
         if (color.length() == 0) {
@@ -83,10 +117,19 @@ public class AddingActivity extends AppCompatActivity {
         return true;
     }
 
+    /**Method to check correction input weight of animal
+     *
+     * @return true if it's a number and > 0
+     * @return false if it's not a number or =< 0
+     */
     private boolean IsCorrectWeight() {
         String textWeight = editTextWeightAnimal.getText().toString();
         try {
-            Double.parseDouble(textWeight);
+            double weight = Double.parseDouble(textWeight);
+            if (weight <= 0) {
+                editTextWeightAnimal.setError("Укажите вес > 0");
+                return false;
+            }
         } catch (NumberFormatException e) {
             editTextWeightAnimal.setError("Некорректный вес");
             return false;
@@ -95,10 +138,19 @@ public class AddingActivity extends AppCompatActivity {
         return true;
     }
 
+    /**Method to check correction input age of animal
+     *
+     * @return true if it's a number and > 0
+     * @return false if it's not a number or < 0
+     */
     private boolean IsCorrectAge() {
         String textAge = editTextAgeAnimal.getText().toString();
         try {
-            Integer.parseInt(textAge);
+            int age = Integer.parseInt(textAge);
+            if (age <= 0) {
+                editTextAgeAnimal.setError("Укажите возраст > 0");
+                return false;
+            }
         } catch (NumberFormatException e) {
             editTextAgeAnimal.setError("Некорректный возраст");
             return false;
@@ -107,6 +159,11 @@ public class AddingActivity extends AppCompatActivity {
         return true;
     }
 
+    /**Method to check correction input name of animal
+     *
+     * @return true if it's not empty
+     * @return false if it's empty
+     */
     private boolean IsCorrectName() {
         String name = editTextNameAnimal.getText().toString();
         if (name.length() == 0) {

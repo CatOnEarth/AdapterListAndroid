@@ -16,15 +16,28 @@ import com.snail.adapterlist.objects.Animal;
 
 import java.util.ArrayList;
 
+/** Custom adapter */
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
 
+    /** ArrayList of animals which display in recyclerView */
     private final ArrayList<Animal> localAnimals;
+    /** Context */
     private final Context           mContext;
 
+    /**
+     * Provide a reference to the type of views that you are using
+     * (custom ViewHolder).
+     */
     public static class ViewHolder extends RecyclerView.ViewHolder {
+        /** TextView name animal in list */
         private final TextView textViewAnimalName;
+        /** TextView age animal in list */
         private final TextView textViewAnimalAge;
 
+        /** Constructor
+         *
+         * @param view View
+         */
         public ViewHolder(View view) {
             super(view);
             textViewAnimalName = (TextView) view.findViewById(R.id.textViewAnimalNameRecyclerView);
@@ -32,11 +45,22 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         }
     }
 
+    /**Constructor custom adapter
+     *
+     * @param animals animals arraylist
+     * @param context context
+     */
     public CustomAdapter(ArrayList<Animal> animals, Context context) {
         localAnimals = animals;
         mContext = context;
     }
 
+    /**Create new views (invoked by the layout manager)
+     *
+     * @param viewGroup The ViewGroup into which the new View will be added after it is bound to an adapter position.
+     * @param viewType The view type of the new View.
+     * @return A new ViewHolder that holds a View of the given view type.
+     */
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
@@ -46,7 +70,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         return new ViewHolder(view);
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
+    /**Replace the contents of a view (invoked by the layout manager)
+     *
+     * @param viewHolder The ViewHolder which should be updated to represent the contents of the item at the given position in the data set.
+     * @param position The position of the item within the adapter's data set.
+     */
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         viewHolder.textViewAnimalName.setText(localAnimals.get(position).getName());
@@ -55,6 +83,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         viewHolder.itemView.setOnClickListener(view -> StartDescriptionActivity(position));
     }
 
+    /**Start description activity
+     *
+     * @param position position in recyclerView
+     */
     public void StartDescriptionActivity(int position) {
         Intent intent = new Intent(mContext, DescriptionObjectActivity.class);
         intent.putExtra(DescriptionObjectActivity.KEY_ID,     localAnimals.get(position).get_id());
@@ -67,6 +99,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         mContext.startActivity(intent);
     }
 
+    /**Method to get number of item's to display in recyclerView
+     *
+     * @return num of item's to display
+     */
     @Override
     public int getItemCount() {
         return localAnimals.size();

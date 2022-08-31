@@ -10,18 +10,31 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.snail.adapterlist.objects.Animal;
 
 import java.util.ArrayList;
+
+/** Class for work with Database SQLITE
+ *
+ */
 public class DBHelper extends SQLiteOpenHelper {
 
+    /** Database name */
     private static final String DATABASE_NAME  = "animalsDB";
+    /** Database version */
     private static final int    DATABASE_VERSION = 1;
 
+    /** Table name for save info about animals */
     private static final String TABLE_ANIMALS  = "animals";
 
+    /** Column name _id */
     private static final String KEY_ID     = "_id";
+    /** Column name name */
     private static final String KEY_NAME   = "name";
+    /** Column name age */
     private static final String KEY_AGE    = "age";
+    /** Column name length */
     private static final String KEY_LENGTH = "length";
+    /** Column name weight */
     private static final String KEY_WEIGHT = "weight";
+    /** Column name color */
     private static final String KEY_COLOR  = "color";
 
     /** Constructor for DBHelper
@@ -117,6 +130,10 @@ public class DBHelper extends SQLiteOpenHelper {
         return isExist;
     }
 
+    /**Method to get all animals from DB and set them in arraylist
+     *
+     * @param animals ArrayList<Animal>
+     */
     public void FillListAnimal(ArrayList<Animal> animals) {
         animals.clear();
 
@@ -148,6 +165,10 @@ public class DBHelper extends SQLiteOpenHelper {
         database.close();
     }
 
+    /**Method to delete animal by id row
+     *
+     * @param id_animal id row in SQLITE
+     */
     public void deleteAnimal(long id_animal) {
         SQLiteDatabase database = getWritableDatabase();
         database.delete(TABLE_ANIMALS, KEY_ID + " = " + id_animal, null);

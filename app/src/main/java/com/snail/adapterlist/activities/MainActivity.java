@@ -16,13 +16,23 @@ import com.snail.adapterlist.objects.Animal;
 
 import java.util.ArrayList;
 
+/**
+ * Launch activity of application
+ */
 public class MainActivity extends AppCompatActivity {
 
+    /** Work with Sqlite */
     private DBHelper db;
 
+    /** Custom adapter to display in recyclerView */
     private CustomAdapter     recyclerAdapter;
+    /** ArrayList of animals which display in recyclerView */
     private final ArrayList<Animal> animalsList = new ArrayList<>();
 
+    /** onCreate method of MainActivity
+     *
+     * @param savedInstanceState a reference to a Bundle object that is passed into the onCreate method of every Android Activity
+     */
     @SuppressLint("NotifyDataSetChanged")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
         recyclerAdapter.notifyDataSetChanged();
     }
 
+    /** onResume method of MainActivity
+     *
+     */
     @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onResume() {

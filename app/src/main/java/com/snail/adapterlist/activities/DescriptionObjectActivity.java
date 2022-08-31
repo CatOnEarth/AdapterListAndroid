@@ -10,22 +10,40 @@ import android.widget.TextView;
 import com.snail.adapterlist.R;
 import com.snail.adapterlist.db.DBHelper;
 
+/** DescriptionObjectActivity activity
+ *
+ */
 public class DescriptionObjectActivity extends AppCompatActivity {
 
+    /** KEY to save/get id(sqlite) from intent */
     public static final String KEY_ID     = "ID";
+    /** KEY to save/get name from intent */
     public static final String KEY_NAME   = "NAME";
+    /** KEY to save/get age animal from intent */
     public static final String KEY_AGE    = "AGE";
+    /** KEY to save/get length animal from intent */
     public static final String KEY_LENGTH = "LENGTH";
+    /** KEY to save/get weight animal from intent */
     public static final String KEY_WEIGHT = "WEIGHT";
+    /** KEY to save/get color animal from intent */
     public static final String KEY_COLOR  = "COLOR";
 
+    /** textView to display name animal */
     private TextView textName;
+    /** textView to display age animal */
     private TextView textAge;
+    /** textView to display length animal */
     private TextView textLength;
+    /** textView to display weight animal */
     private TextView textWeight;
+    /** textView to display color animal */
     private TextView textColor;
 
 
+    /** onCreate method of MainActivity
+     *
+     * @param savedInstanceState a reference to a Bundle object that is passed into the onCreate method of every Android Activity
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +61,9 @@ public class DescriptionObjectActivity extends AppCompatActivity {
         bDeleteAnimal.setOnClickListener(view -> DeleteAnimal());
     }
 
+    /** Method to set data in textviews
+     *
+     */
     private void setDataDescription() {
         Intent intent = getIntent();
 
@@ -53,6 +74,9 @@ public class DescriptionObjectActivity extends AppCompatActivity {
         textColor.setText(intent.getStringExtra(KEY_COLOR));
     }
 
+    /**Method to delete animal from SQLITE
+     *
+     */
     private void DeleteAnimal() {
         DBHelper db = new DBHelper(this);
         db.deleteAnimal(getIntent().getLongExtra(KEY_ID, -1));

@@ -1,0 +1,137 @@
+\hypertarget{_adding_activity_8java_source}{}\doxysection{Adding\+Activity.\+java}
+\label{_adding_activity_8java_source}\index{app/src/main/java/com/snail/adapterlist/activities/AddingActivity.java@{app/src/main/java/com/snail/adapterlist/activities/AddingActivity.java}}
+\mbox{\hyperlink{_adding_activity_8java}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00001}\mbox{\hyperlink{namespacecom_1_1snail_1_1adapterlist_1_1activities}{00001}} \textcolor{keyword}{package }com.snail.adapterlist.activities;}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00003}00003 \textcolor{keyword}{import} androidx.appcompat.app.AppCompatActivity;}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00005}00005 \textcolor{keyword}{import} android.os.Bundle;}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00006}00006 \textcolor{keyword}{import} android.widget.Button;}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00007}00007 \textcolor{keyword}{import} android.widget.EditText;}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00008}00008 \textcolor{keyword}{import} android.widget.Toast;}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00010}00010 \textcolor{keyword}{import} com.snail.adapterlist.R;}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00011}00011 \textcolor{keyword}{import} com.snail.adapterlist.db.DBHelper;}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00012}00012 \textcolor{keyword}{import} com.snail.adapterlist.objects.Animal;}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00014}\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1activities_1_1_adding_activity}{00014}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1activities_1_1_adding_activity}{AddingActivity}} \textcolor{keyword}{extends} AppCompatActivity \{}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00017}00017     \textcolor{keyword}{private} EditText editTextNameAnimal;}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00019}00019     \textcolor{keyword}{private} EditText editTextAgeAnimal;}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00021}00021     \textcolor{keyword}{private} EditText editTextLengthAnimal;}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00023}00023     \textcolor{keyword}{private} EditText editTextWeightAnimal;}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00025}00025     \textcolor{keyword}{private} EditText editTextColorAnimal;}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00031}00031     @Override}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00032}\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1activities_1_1_adding_activity_a1b1477b20b606e938f3b45c9a461fa05}{00032}}     \textcolor{keyword}{protected} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1activities_1_1_adding_activity_a1b1477b20b606e938f3b45c9a461fa05}{onCreate}}(Bundle savedInstanceState) \{}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00033}00033         super.onCreate(savedInstanceState);}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00034}00034         setContentView(R.layout.activity\_adding);}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00036}00036         editTextNameAnimal   = findViewById(R.id.editTextTextNameAnimal);}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00037}00037         editTextAgeAnimal    = findViewById(R.id.editTextTextAgeAnimal);}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00038}00038         editTextLengthAnimal = findViewById(R.id.editTextTextLengthAnimal);}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00039}00039         editTextWeightAnimal = findViewById(R.id.editTextTextWeightAnimal);}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00040}00040         editTextColorAnimal  = findViewById(R.id.editTextTexColorAnimal);}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00042}00042         Button bSaveAnimal = findViewById(R.id.buttonSaveAnimal);}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00043}00043         bSaveAnimal.setOnClickListener(view -\/> SaveAnimalInfo());}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00044}00044     \}}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00049}00049     \textcolor{keyword}{private} \textcolor{keywordtype}{void} SaveAnimalInfo() \{}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00050}00050         \textcolor{keywordflow}{if} (IsCorrectInfo()) \{}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00051}00051             SaveAnimal();}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00052}00052         \}}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00053}00053     \}}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00058}00058     \textcolor{keyword}{private} \textcolor{keywordtype}{void} SaveAnimal() \{}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00059}00059         String name   = editTextNameAnimal.getText().toString();}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00060}00060         \textcolor{keywordtype}{int}    age    = Integer.parseInt(editTextAgeAnimal.getText().toString());}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00061}00061         \textcolor{keywordtype}{double} length = Double.parseDouble(editTextLengthAnimal.getText().toString());}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00062}00062         \textcolor{keywordtype}{double} weight = Double.parseDouble(editTextWeightAnimal.getText().toString());}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00063}00063         String color  = editTextColorAnimal.getText().toString();}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00065}00065         DBHelper db = \textcolor{keyword}{new} DBHelper(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00066}00066         Animal animal = \textcolor{keyword}{new} Animal(name, age, length, weight, color);}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00067}00067         \textcolor{keywordflow}{if} (db.IsAnimalExist(animal)) \{}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00068}00068             Toast.makeText(\textcolor{keyword}{this}, \textcolor{stringliteral}{"{}Животное уже существует"{}}, Toast.LENGTH\_LONG).show();}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00069}00069         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00070}00070             db.insertAnimal(animal);}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00071}00071         \}}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00072}00072     \}}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00079}00079     \textcolor{keyword}{private} \textcolor{keywordtype}{boolean} IsCorrectInfo() \{}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00080}00080         \textcolor{keywordflow}{return} IsCorrectName() \&\& IsCorrectColor() \&\& IsCorrectWeight()}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00081}00081                      \&\& IsCorrectLength() \&\& IsCorrectAge();}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00082}00082     \}}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00083}00083 }
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00089}00089     \textcolor{keyword}{private} \textcolor{keywordtype}{boolean} IsCorrectLength() \{}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00090}00090         String textLength = editTextLengthAnimal.getText().toString();}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00091}00091         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00092}00092             \textcolor{keywordtype}{double} length = Double.parseDouble(textLength);}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00093}00093             \textcolor{keywordflow}{if} (length <= 0) \{}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00094}00094                 editTextLengthAnimal.setError(\textcolor{stringliteral}{"{}Укажите длину > 0"{}});}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00095}00095                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00096}00096             \}}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00097}00097         \} \textcolor{keywordflow}{catch} (NumberFormatException e) \{}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00098}00098             editTextLengthAnimal.setError(\textcolor{stringliteral}{"{}Укажите длину"{}});}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00099}00099             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00100}00100         \}}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00101}00101 }
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00102}00102         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00103}00103     \}}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00104}00104 }
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00110}00110     \textcolor{keyword}{private} \textcolor{keywordtype}{boolean} IsCorrectColor() \{}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00111}00111         String color = editTextColorAnimal.getText().toString();}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00112}00112         \textcolor{keywordflow}{if} (color.length() == 0) \{}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00113}00113             editTextColorAnimal.setError(\textcolor{stringliteral}{"{}Укажите цвет"{}});}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00114}00114             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00115}00115         \}}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00116}00116 }
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00117}00117         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00118}00118     \}}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00119}00119 }
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00125}00125     \textcolor{keyword}{private} \textcolor{keywordtype}{boolean} IsCorrectWeight() \{}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00126}00126         String textWeight = editTextWeightAnimal.getText().toString();}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00127}00127         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00128}00128             \textcolor{keywordtype}{double} weight = Double.parseDouble(textWeight);}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00129}00129             \textcolor{keywordflow}{if} (weight <= 0) \{}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00130}00130                 editTextWeightAnimal.setError(\textcolor{stringliteral}{"{}Укажите вес > 0"{}});}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00131}00131                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00132}00132             \}}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00133}00133         \} \textcolor{keywordflow}{catch} (NumberFormatException e) \{}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00134}00134             editTextWeightAnimal.setError(\textcolor{stringliteral}{"{}Некорректный вес"{}});}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00135}00135             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00136}00136         \}}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00137}00137 }
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00138}00138         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00139}00139     \}}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00140}00140 }
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00146}00146     \textcolor{keyword}{private} \textcolor{keywordtype}{boolean} IsCorrectAge() \{}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00147}00147         String textAge = editTextAgeAnimal.getText().toString();}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00148}00148         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00149}00149             \textcolor{keywordtype}{int} age = Integer.parseInt(textAge);}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00150}00150             \textcolor{keywordflow}{if} (age <= 0) \{}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00151}00151                 editTextAgeAnimal.setError(\textcolor{stringliteral}{"{}Укажите возраст > 0"{}});}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00152}00152                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00153}00153             \}}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00154}00154         \} \textcolor{keywordflow}{catch} (NumberFormatException e) \{}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00155}00155             editTextAgeAnimal.setError(\textcolor{stringliteral}{"{}Некорректный возраст"{}});}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00156}00156             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00157}00157         \}}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00158}00158 }
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00159}00159         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00160}00160     \}}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00161}00161 }
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00167}00167     \textcolor{keyword}{private} \textcolor{keywordtype}{boolean} IsCorrectName() \{}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00168}00168         String name = editTextNameAnimal.getText().toString();}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00169}00169         \textcolor{keywordflow}{if} (name.length() == 0) \{}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00170}00170             editTextNameAnimal.setError(\textcolor{stringliteral}{"{}Укажите название"{}});}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00171}00171             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00172}00172         \}}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00173}00173 }
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00174}00174         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00175}00175     \}}
+\DoxyCodeLine{\Hypertarget{_adding_activity_8java_source_l00176}00176 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,240 @@
+\hypertarget{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper}{}\doxysection{com.\+snail.\+adapterlist.\+db.\+DBHelper Class Reference}
+\label{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper}\index{com.snail.adapterlist.db.DBHelper@{com.snail.adapterlist.db.DBHelper}}
+
+
+Inheritance diagram for com.\+snail.\+adapterlist.\+db.\+DBHelper\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+snail.\+adapterlist.\+db.\+DBHelper\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_ad77f1c1012c1308e6cec02527b3578bd}{DBHelper}} (Context context)
+\item 
+void \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_a1390ca734ade349d50aba903ca59ee1c}{on\+Create}} (SQLite\+Database sq\+Lite\+Database)
+\item 
+void \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_ab4db1a20ce1dfe1fad0c5c4fabe735f2}{on\+Upgrade}} (SQLite\+Database sq\+Lite\+Database, int old\+Version, int new\+Version)
+\item 
+long \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_a45c8a017f229c09fd656d7d0b2548420}{insert\+Animal}} (\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1objects_1_1_animal}{Animal}} animal)
+\item 
+boolean \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_aa4185e58dcc65295a5ff308ba4b9012a}{Is\+Animal\+Exist}} (\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1objects_1_1_animal}{Animal}} animal)
+\item 
+void \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_ae561c465d6bc2771a192f549c4fa7634}{Fill\+List\+Animal}} (Array\+List$<$ \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1objects_1_1_animal}{Animal}} $>$ animals)
+\item 
+void \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_ab0e9a5215fbb262e6db150c241705e57}{delete\+Animal}} (long id\+\_\+animal)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for work with Database SQLITE 
+
+Definition at line \mbox{\hyperlink{_d_b_helper_8java_source_l00017}{17}} of file \mbox{\hyperlink{_d_b_helper_8java_source}{DBHelper.\+java}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_ad77f1c1012c1308e6cec02527b3578bd}\label{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_ad77f1c1012c1308e6cec02527b3578bd}} 
+\index{com.snail.adapterlist.db.DBHelper@{com.snail.adapterlist.db.DBHelper}!DBHelper@{DBHelper}}
+\index{DBHelper@{DBHelper}!com.snail.adapterlist.db.DBHelper@{com.snail.adapterlist.db.DBHelper}}
+\doxysubsubsection{\texorpdfstring{DBHelper()}{DBHelper()}}
+{\footnotesize\ttfamily com.\+snail.\+adapterlist.\+db.\+DBHelper.\+DBHelper (\begin{DoxyParamCaption}\item[{Context}]{context }\end{DoxyParamCaption})}
+
+Constructor for \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper}{DBHelper}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & Context \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_d_b_helper_8java_source_l00044}{44}} of file \mbox{\hyperlink{_d_b_helper_8java_source}{DBHelper.\+java}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_ab0e9a5215fbb262e6db150c241705e57}\label{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_ab0e9a5215fbb262e6db150c241705e57}} 
+\index{com.snail.adapterlist.db.DBHelper@{com.snail.adapterlist.db.DBHelper}!deleteAnimal@{deleteAnimal}}
+\index{deleteAnimal@{deleteAnimal}!com.snail.adapterlist.db.DBHelper@{com.snail.adapterlist.db.DBHelper}}
+\doxysubsubsection{\texorpdfstring{deleteAnimal()}{deleteAnimal()}}
+{\footnotesize\ttfamily void com.\+snail.\+adapterlist.\+db.\+DBHelper.\+delete\+Animal (\begin{DoxyParamCaption}\item[{long}]{id\+\_\+animal }\end{DoxyParamCaption})}
+
+Method to delete animal by id row
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+\_\+animal} & id row in SQLITE \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_d_b_helper_8java_source_l00172}{172}} of file \mbox{\hyperlink{_d_b_helper_8java_source}{DBHelper.\+java}}.
+
+\mbox{\Hypertarget{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_ae561c465d6bc2771a192f549c4fa7634}\label{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_ae561c465d6bc2771a192f549c4fa7634}} 
+\index{com.snail.adapterlist.db.DBHelper@{com.snail.adapterlist.db.DBHelper}!FillListAnimal@{FillListAnimal}}
+\index{FillListAnimal@{FillListAnimal}!com.snail.adapterlist.db.DBHelper@{com.snail.adapterlist.db.DBHelper}}
+\doxysubsubsection{\texorpdfstring{FillListAnimal()}{FillListAnimal()}}
+{\footnotesize\ttfamily void com.\+snail.\+adapterlist.\+db.\+DBHelper.\+Fill\+List\+Animal (\begin{DoxyParamCaption}\item[{Array\+List$<$ \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1objects_1_1_animal}{Animal}} $>$}]{animals }\end{DoxyParamCaption})}
+
+Method to get all animals from DB and set them in arraylist
+
+
+\begin{DoxyParams}{Parameters}
+{\em animals} & Array\+List$<$\+Animal$>$ \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_d_b_helper_8java_source_l00137}{137}} of file \mbox{\hyperlink{_d_b_helper_8java_source}{DBHelper.\+java}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_ae561c465d6bc2771a192f549c4fa7634_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_a45c8a017f229c09fd656d7d0b2548420}\label{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_a45c8a017f229c09fd656d7d0b2548420}} 
+\index{com.snail.adapterlist.db.DBHelper@{com.snail.adapterlist.db.DBHelper}!insertAnimal@{insertAnimal}}
+\index{insertAnimal@{insertAnimal}!com.snail.adapterlist.db.DBHelper@{com.snail.adapterlist.db.DBHelper}}
+\doxysubsubsection{\texorpdfstring{insertAnimal()}{insertAnimal()}}
+{\footnotesize\ttfamily long com.\+snail.\+adapterlist.\+db.\+DBHelper.\+insert\+Animal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1objects_1_1_animal}{Animal}}}]{animal }\end{DoxyParamCaption})}
+
+Insert new animal in person table
+
+
+\begin{DoxyParams}{Parameters}
+{\em animal} & Object animal, who need to add\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1\+: error 
+
+-\/2\+: animal exist in table 
+
+another\+: id row in table 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_d_b_helper_8java_source_l00084}{84}} of file \mbox{\hyperlink{_d_b_helper_8java_source}{DBHelper.\+java}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_a45c8a017f229c09fd656d7d0b2548420_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_aa4185e58dcc65295a5ff308ba4b9012a}\label{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_aa4185e58dcc65295a5ff308ba4b9012a}} 
+\index{com.snail.adapterlist.db.DBHelper@{com.snail.adapterlist.db.DBHelper}!IsAnimalExist@{IsAnimalExist}}
+\index{IsAnimalExist@{IsAnimalExist}!com.snail.adapterlist.db.DBHelper@{com.snail.adapterlist.db.DBHelper}}
+\doxysubsubsection{\texorpdfstring{IsAnimalExist()}{IsAnimalExist()}}
+{\footnotesize\ttfamily boolean com.\+snail.\+adapterlist.\+db.\+DBHelper.\+Is\+Animal\+Exist (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1objects_1_1_animal}{Animal}}}]{animal }\end{DoxyParamCaption})}
+
+Check if animal exist in animal table
+
+
+\begin{DoxyParams}{Parameters}
+{\em animal} & Object animal, who need to find \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true\+: exist 
+
+false\+: not exist 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_d_b_helper_8java_source_l00111}{111}} of file \mbox{\hyperlink{_d_b_helper_8java_source}{DBHelper.\+java}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_aa4185e58dcc65295a5ff308ba4b9012a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_aa4185e58dcc65295a5ff308ba4b9012a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_a1390ca734ade349d50aba903ca59ee1c}\label{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_a1390ca734ade349d50aba903ca59ee1c}} 
+\index{com.snail.adapterlist.db.DBHelper@{com.snail.adapterlist.db.DBHelper}!onCreate@{onCreate}}
+\index{onCreate@{onCreate}!com.snail.adapterlist.db.DBHelper@{com.snail.adapterlist.db.DBHelper}}
+\doxysubsubsection{\texorpdfstring{onCreate()}{onCreate()}}
+{\footnotesize\ttfamily void com.\+snail.\+adapterlist.\+db.\+DBHelper.\+on\+Create (\begin{DoxyParamCaption}\item[{SQLite\+Database}]{sq\+Lite\+Database }\end{DoxyParamCaption})}
+
+Call if database not exist
+
+
+\begin{DoxyParams}{Parameters}
+{\em sq\+Lite\+Database} & SQLITE \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_d_b_helper_8java_source_l00053}{53}} of file \mbox{\hyperlink{_d_b_helper_8java_source}{DBHelper.\+java}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_a1390ca734ade349d50aba903ca59ee1c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_ab4db1a20ce1dfe1fad0c5c4fabe735f2}\label{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_ab4db1a20ce1dfe1fad0c5c4fabe735f2}} 
+\index{com.snail.adapterlist.db.DBHelper@{com.snail.adapterlist.db.DBHelper}!onUpgrade@{onUpgrade}}
+\index{onUpgrade@{onUpgrade}!com.snail.adapterlist.db.DBHelper@{com.snail.adapterlist.db.DBHelper}}
+\doxysubsubsection{\texorpdfstring{onUpgrade()}{onUpgrade()}}
+{\footnotesize\ttfamily void com.\+snail.\+adapterlist.\+db.\+DBHelper.\+on\+Upgrade (\begin{DoxyParamCaption}\item[{SQLite\+Database}]{sq\+Lite\+Database,  }\item[{int}]{old\+Version,  }\item[{int}]{new\+Version }\end{DoxyParamCaption})}
+
+Call if need to update version of database
+
+
+\begin{DoxyParams}{Parameters}
+{\em SQLite\+Database} & SQLITE \\
+\hline
+{\em old\+Version} & number of old version db \\
+\hline
+{\em new\+Version} & number of new version db \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_d_b_helper_8java_source_l00071}{71}} of file \mbox{\hyperlink{_d_b_helper_8java_source}{DBHelper.\+java}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_ab4db1a20ce1dfe1fad0c5c4fabe735f2_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+app/src/main/java/com/snail/adapterlist/db/\mbox{\hyperlink{_d_b_helper_8java}{DBHelper.\+java}}\end{DoxyCompactItemize}

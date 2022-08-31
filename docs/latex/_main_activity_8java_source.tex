@@ -1,0 +1,63 @@
+\hypertarget{_main_activity_8java_source}{}\doxysection{Main\+Activity.\+java}
+\label{_main_activity_8java_source}\index{app/src/main/java/com/snail/adapterlist/activities/MainActivity.java@{app/src/main/java/com/snail/adapterlist/activities/MainActivity.java}}
+\mbox{\hyperlink{_main_activity_8java}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00001}00001 \textcolor{keyword}{package }com.snail.adapterlist.activities;}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00003}00003 \textcolor{keyword}{import} androidx.appcompat.app.AppCompatActivity;}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00004}00004 \textcolor{keyword}{import} androidx.recyclerview.widget.LinearLayoutManager;}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00005}00005 \textcolor{keyword}{import} androidx.recyclerview.widget.RecyclerView;}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00007}00007 \textcolor{keyword}{import} android.annotation.SuppressLint;}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00008}00008 \textcolor{keyword}{import} android.content.Intent;}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00009}00009 \textcolor{keyword}{import} android.os.Bundle;}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00011}00011 \textcolor{keyword}{import} com.google.android.material.floatingactionbutton.FloatingActionButton;}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00012}00012 \textcolor{keyword}{import} com.snail.adapterlist.R;}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00013}00013 \textcolor{keyword}{import} com.snail.adapterlist.adapters.CustomAdapter;}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00014}00014 \textcolor{keyword}{import} com.snail.adapterlist.db.DBHelper;}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00015}00015 \textcolor{keyword}{import} com.snail.adapterlist.objects.Animal;}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00017}00017 \textcolor{keyword}{import} java.util.ArrayList;}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00022}\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1activities_1_1_main_activity}{00022}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1activities_1_1_main_activity}{MainActivity}} \textcolor{keyword}{extends} AppCompatActivity \{}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00025}00025     \textcolor{keyword}{private} \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper}{DBHelper}} db;}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00028}00028     \textcolor{keyword}{private} \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1adapters_1_1_custom_adapter}{CustomAdapter}}     recyclerAdapter;}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00030}00030     \textcolor{keyword}{private} \textcolor{keyword}{final} ArrayList<Animal> animalsList = \textcolor{keyword}{new} ArrayList<>();}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00036}00036     @SuppressLint(\textcolor{stringliteral}{"{}NotifyDataSetChanged"{}})}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00037}00037     @Override}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00038}\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1activities_1_1_main_activity_afbfdfb30daa18d593907b08d3487a015}{00038}}     \textcolor{keyword}{protected} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1activities_1_1_main_activity_afbfdfb30daa18d593907b08d3487a015}{onCreate}}(Bundle savedInstanceState) \{}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00039}00039         super.onCreate(savedInstanceState);}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00040}00040         setContentView(R.layout.activity\_main);}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00042}00042         db = \textcolor{keyword}{new} \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper}{DBHelper}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00043}00043         db.\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_ae561c465d6bc2771a192f549c4fa7634}{FillListAnimal}}(animalsList);}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00045}00045         RecyclerView recycler = findViewById(R.id.recyclerView);}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00046}00046         LinearLayoutManager layoutManager = \textcolor{keyword}{new} LinearLayoutManager(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00047}00047         recycler.setLayoutManager(layoutManager);}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00048}00048         recyclerAdapter = \textcolor{keyword}{new} \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1adapters_1_1_custom_adapter}{CustomAdapter}}(animalsList, \textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00049}00049         recycler.setAdapter(recyclerAdapter);}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00051}00051         FloatingActionButton fab = findViewById(R.id.fabAdd);}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00052}00052         fab.setOnClickListener(view -\/> \{}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00053}00053             Intent intent = \textcolor{keyword}{new} Intent(\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1activities_1_1_main_activity}{MainActivity}}.this, \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1activities_1_1_adding_activity}{AddingActivity}}.class);}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00054}00054             startActivity(intent);}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00055}00055         \});}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00057}00057         recyclerAdapter.notifyDataSetChanged();}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00058}00058     \}}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00063}00063     @SuppressLint(\textcolor{stringliteral}{"{}NotifyDataSetChanged"{}})}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00064}00064     @Override}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00065}\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1activities_1_1_main_activity_a938b6389174ab7c0059c31e309e9eb2a}{00065}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1activities_1_1_main_activity_a938b6389174ab7c0059c31e309e9eb2a}{onResume}}() \{}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00066}00066         super.onResume();}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00067}00067         db.\mbox{\hyperlink{classcom_1_1snail_1_1adapterlist_1_1db_1_1_d_b_helper_ae561c465d6bc2771a192f549c4fa7634}{FillListAnimal}}(animalsList);}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00068}00068         recyclerAdapter.notifyDataSetChanged();}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00069}00069     \}}
+\DoxyCodeLine{\Hypertarget{_main_activity_8java_source_l00070}00070 \}}
+
+\end{DoxyCode}
