@@ -68,6 +68,7 @@ public class AddingActivity extends AppCompatActivity {
             Toast.makeText(this, "Животное уже существует", Toast.LENGTH_LONG).show();
         } else {
             db.insertAnimal(animal);
+            finish();
         }
     }
 
